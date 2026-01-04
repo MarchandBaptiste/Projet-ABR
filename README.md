@@ -1,6 +1,8 @@
 # Arbre Binaire de Recherche (ABR) - Visualiseur Python
 
 ![Aperçu de l'application.](./PlanABR-Merlin-Marchand.PNG)
+
+
 Projet académique réalisé dans le cadre du cursus étudiant. Cette application permet de générer, d'insérer des nœuds et de visualiser graphiquement la structure d'un Arbre Binaire de Recherche via une interface utilisateur.
 
 ## 🚀 Fonctionnalités
