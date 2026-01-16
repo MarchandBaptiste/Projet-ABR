@@ -45,7 +45,7 @@ class ArbreBinaire:
         else:
             self.racine.ajouter(valeur, 1)  # On commence à la hauteur 1 si la racine existe déjà
 
-    def afficher(self, canvas, x, y, profondeur=0, espacement=170):
+    def afficher(self, canvas, x, y, profondeur=0, espacement=140):
         # Affiche l'arbre sur une toile graphique
         self._afficher_noeud(canvas, self.racine, x, y, profondeur, espacement)
 
@@ -54,8 +54,8 @@ class ArbreBinaire:
         if noeud is None:
             return
 
-        rayon = 20  # Rayon du cercle représentant un nœud
-        hauteur_ecart = 120  # Écart vertical entre les nœuds
+        rayon = 15  # Rayon du cercle représentant un nœud
+        hauteur_ecart = 70  # Écart vertical entre les nœuds
 
         # Si le nœud a un sous-arbre gauche, on dessine une ligne et on affiche récursivement ce sous-arbre
         if noeud.sag:
@@ -77,43 +77,43 @@ class ArbreBinaire:
 class Application:
     def __init__(self, root):
         self._fenetre = root
-        self._fenetre.geometry("1800x1000")
+        self._fenetre.geometry("1024x600")
         self._fenetre.title("Arbre Binaire de Recherche")
-        self._fenetre.config(bg="white")
+        self._fenetre.config(bg="#f0f0f0")
         self._arbre = ArbreBinaire()
 
         # Canevas pour afficher l'arbre
-        canevas = tk.Canvas(self._fenetre, width=1604, height=130, bg="#FFFFFF", highlightbackground="#FFFFFF", highlightthickness=5)
+        canevas = tk.Canvas(self._fenetre, width=1604, height=130, highlightthickness=5)
         canevas.pack(pady=20)
-        self.create_rectangle(canevas, 108, 55, 1604, 130, fill="Dim Gray")
+        self.create_rectangle(canevas, 40, 0, 980, 80, fill="#1F2937")
 
         # Titre de l'application
-        titre = tk.Label(self._fenetre, text="Arbre Binaire de Recherche", font=("Arial", 15, "bold"))
-        titre.place(x=802, y=96)
+        titre = tk.Label(self._fenetre, text="Arbre Binaire de Recherche", bg="#1F2937", fg="#FFFFFF",font=("Arial", 15, "bold"))
+        titre.place(x=400, y=45)
 
         # Canevas pour afficher l'arbre binaire
-        self._canvas = tk.Canvas(self._fenetre, width=760, height=630, bg="#D3D3D3")
-        self._canvas.place(x=270, y=200)
+        self._canvas = tk.Canvas(self._fenetre, width=560, height=430, bg="#FFFFFF")
+        self._canvas.place(x=70, y=130)
 
         # Champ de texte pour saisir les valeurs
-        self._entry = tk.Entry(self._fenetre, bd=4, width=40, relief="solid")
-        self._entry.place(x=1205, y=300)
+        self._entry = tk.Entry(self._fenetre, bd=2, width=40, relief="solid")
+        self._entry.place(x=690, y=300)
 
         # Boutons
         bouton_ajouter = tk.Button(self._fenetre, text="Dessiner", font=("Arial", 12, "bold"), width=10, height=2, command=self.ajouter_valeurs)
-        bouton_ajouter.place(x=1266, y=537)
+        bouton_ajouter.place(x=760, y=400)
 
         bouton_reset = tk.Button(self._fenetre, text="Réinitialiser", font=("Arial", 12, "bold"), width=10, height=2, command=self.reinitialiser)
-        bouton_reset.place(x=1540, y=90)
+        bouton_reset.place(x=900, y=45)
 
         bouton_Apropos = tk.Button(self._fenetre, text="À propos", font=("Arial", 12, "bold"), width=10, height=2, command=self.FenetreAPropos)
-        bouton_Apropos.place(x=1400, y=90)
+        bouton_Apropos.place(x=100, y=45)
 
         bouton_quitter = tk.Button(self._fenetre, text="Quitter", font=("Arial", 12, "bold"), width=10, height=2, fg='red', command=self._fenetre.destroy)
-        bouton_quitter.place(x=200, y=864)
+        bouton_quitter.place(x=840, y=530)
 
-        canevas.create_window(1540, 90, window=bouton_reset)
-        canevas.create_window(180, 90, window=bouton_Apropos)
+        canevas.create_window(900, 45, window=bouton_reset)
+        canevas.create_window(120, 45, window=bouton_Apropos)
 
     def ajouter_valeurs(self):
         try:
@@ -130,7 +130,7 @@ class Application:
                 self._arbre.ajouter(valeur)
             # Effacement du canvas avant de redessiner l'arbre
             self._canvas.delete("all")
-            self._arbre.afficher(self._canvas, 380, 85)
+            self._arbre.afficher(self._canvas, 280, 80)
         except ValueError:
             # Gestion des erreurs si la conversion en entier échoue
             print("Veuillez entrer des nombres valides.")
@@ -149,16 +149,16 @@ class Application:
     def FenetreAPropos(self):
         # Crée une fenêtre "À propos" avec des informations sur l'application
         fenetreAP = tk.Toplevel(self._fenetre)
-        fenetreAP.geometry("1100x680")
+        fenetreAP.geometry("800x480")
         fenetreAP.title("À propos")
-        fenetreAP.configure(bg="#FFFFFF")
+        fenetreAP.configure(bg="#f0f0f0")
 
-        canevas = tk.Canvas(fenetreAP, width=1200, height=100, bg="#FFFFFF", highlightbackground="#FFFFFF", highlightthickness=5)
+        canevas = tk.Canvas(fenetreAP, width=800, height=50, highlightthickness=5)
         canevas.pack(pady=20)
-        self.create_rectangle(canevas, 108, 55, 1000, 100, fill="Dim Gray")
+        self.create_rectangle(canevas, 45, 0, 800, 50, fill="#1F2937")
 
-        titre = tk.Label(fenetreAP, text="À propos", font=("Arial", 15, "bold"))
-        titre.place(x=500, y=82)
+        titre = tk.Label(fenetreAP, text="À propos", bg="#1F2937", fg="#FFFFFF",font=("Arial", 15, "bold"))
+        titre.place(x=400, y=35)
 
         textes = [
             "Comment utiliser notre application ?",
@@ -169,16 +169,16 @@ class Application:
             "- Cliquez sur 'Quitter' pour fermer l'application."
         ]
 
-        y_position = 144
+        y_position = 120
         for texte in textes:
-            tk.Label(fenetreAP, text=texte, font=("Arial", 12, "bold")).place(x=101, y=y_position)
-            y_position += 60
+            tk.Label(fenetreAP, text=texte, font=("Arial", 12, "bold")).place(x=100, y=y_position)
+            y_position += 40
 
         createur = tk.Label(fenetreAP, text="Merlin Kylian | Marchand Baptiste", font=("Arial", 10))
-        createur.place(x=770, y=630)
+        createur.place(x=100, y=420)
 
         boutonQ = tk.Button(fenetreAP, text="Quitter", font=("Arial", 12, "bold"), width=10, height=2, fg='red', command=fenetreAP.destroy)
-        boutonQ.place(x=100, y=590)
+        boutonQ.place(x=600, y=400)
 
 if __name__ == "__main__":
     root = tk.Tk()
