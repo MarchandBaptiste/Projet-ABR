@@ -2,7 +2,7 @@
 
 ![Projet académique réalisé dans le cadre du cursus étudiant. Cette application permet de générer, d'insérer des nœuds et de visualiser graphiquement la structure d'un Arbre Binaire de Recherche via une interface utilisateur.](./views.png)
 
-## 🚀 Fonctionnalités
+## Fonctionnalités
 
 Insertion dynamique : Ajout de nœuds avec des valeurs comprises entre 1 et 99.
 
@@ -14,7 +14,7 @@ Interface intuitive : Boutons Dessiner, Réinitialiser et Quitter.
 
 Sécurité : Gestion des erreurs de saisie (valeurs non traitables ou hors limites).
 
-## 🛠️ Stack Technique
+## Stack Technique
 
 Langage : Python 3
 
@@ -22,7 +22,7 @@ Interface Graphique : Tkinter
 
 Paradigme : Programmation Orientée Objet (POO)
 
-## 📂 Structure du Code
+## Structure du Code
 
 Le projet s'appuie sur trois classes principales :
 
@@ -32,7 +32,7 @@ Classe ArbreBinaire : Gère la logique de l'arbre (méthode d'insertion, calcul 
 
 Classe Application : Gère l'interface graphique, les événements et le tracé des nœuds/liens.
 
-## 📊 Aperçu des Tests
+## Aperçu des Tests
 
 Le programme a été validé avec les cas suivants :
 
